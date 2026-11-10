@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智学 | 新一代学习APP</title>
+    <meta name="description" content="Exammate — 跨平台智能刷题应用。支持 Word/PDF 题库导入、AI 自动出题、函数几何绘图、多题型练习，Android/iOS/Desktop 全平台覆盖。">
+    <title>Exammate · 跨平台智能刷题助手</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -13,7 +14,7 @@
                     colors: {
                         primary: '#4F46E5',
                         secondary: '#06B6D4',
-                        dark: '#111827'
+                        dark: '#0F172A'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif']
@@ -43,26 +44,28 @@
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-dark overflow-x-hidden">
+
     <!-- 导航栏 -->
     <nav class="fixed w-full top-0 z-50 glass border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-lg">Z</div>
-                    <span class="text-xl font-bold">智学</span>
-                </div>
+                <a href="#home" class="flex items-center gap-2">
+                    <div class="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-lg">E</div>
+                    <span class="text-xl font-bold tracking-tight">Exammate</span>
+                </a>
                 <!-- PC菜单 -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#home" class="text-slate-700 hover:text-primary transition">首页</a>
-                    <a href="#feature" class="text-slate-700 hover:text-primary transition">核心功能</a>
-                    <a href="#advantage" class="text-slate-700 hover:text-primary transition">产品优势</a>
-                    <a href="#download" class="text-slate-700 hover:text-primary transition">下载APP</a>
+                    <a href="#features" class="text-slate-700 hover:text-primary transition">功能</a>
+                    <a href="#ai" class="text-slate-700 hover:text-primary transition">AI 助手</a>
+                    <a href="#platforms" class="text-slate-700 hover:text-primary transition">多平台</a>
+                    <a href="#download" class="text-slate-700 hover:text-primary transition">下载</a>
                 </div>
-                <a href="#download" class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full transition shadow-lg shadow-primary/20">
-                    立即下载
+                <a href="#download" class="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full transition shadow-lg shadow-primary/20 items-center gap-2">
+                    <i class="fa fa-download text-sm"></i>
+                    <span class="text-sm font-medium">立即下载</span>
                 </a>
-                <!-- 移动端汉堡菜单（简易） -->
-                <button class="md:hidden text-2xl">
+                <!-- 移动端简易菜单 -->
+                <button class="md:hidden text-2xl text-slate-700">
                     <i class="fa fa-bars"></i>
                 </button>
             </div>
@@ -70,144 +73,441 @@
     </nav>
 
     <!-- Hero 首屏 -->
-    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
-                        📚 全新学习工具 · 现已上线
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm mb-6">
+                        <i class="fa fa-rocket text-xs"></i>
+                        <span>全新发布 · AI 智能出题已上线</span>
                     </div>
-                    <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight">
-                        高效学习，<br>
-                        <span class="bg-gradient-to-r from-primary to-secondary text-gradient">随时随地提升自己</span>
+                    <h1 class="text-[clamp(2.5rem,5vw,4.25rem)] font-bold leading-[1.1] tracking-tight">
+                        智能刷题，<br>
+                        <span class="bg-gradient-to-r from-primary to-secondary text-gradient">让考试准备事半功倍</span>
                     </h1>
-                    <p class="mt-6 text-slate-600 text-lg">
-                        智学APP，一站式学习平台。智能笔记、题库刷题、同步课程、学习计划，把高效学习装进手机。
+                    <p class="mt-6 text-slate-600 text-lg leading-relaxed">
+                        Exammate 是一款<strong class="text-slate-800">跨平台智能刷题应用</strong>。支持从 Word、PDF 一键导入题库，内置 AI 助手自动生成试卷、出题、绘图，函数几何题也能轻松搞定。Android、iOS、桌面端全平台覆盖，数据本地存储，隐私安全无忧。
                     </p>
                     <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="#download" class="bg-primary text-white px-7 py-3 rounded-full hover:shadow-xl shadow-primary/20 transition">
-                            免费下载
+                        <a href="#download" class="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full hover:shadow-xl shadow-primary/20 transition">
+                            <i class="fa fa-download"></i>
+                            <span>免费下载</span>
                         </a>
-                        <a href="#feature" class="border border-slate-300 px-7 py-3 rounded-full hover:border-primary hover:text-primary transition">
-                            了解功能
+                        <a href="#features" class="inline-flex items-center gap-2 border border-slate-300 px-7 py-3 rounded-full hover:border-primary hover:text-primary transition">
+                            <i class="fa fa-book"></i>
+                            <span>了解功能</span>
                         </a>
                     </div>
-                    <div class="mt-10 flex items-center gap-6">
+                    <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
                         <div>
-                            <div class="text-2xl font-bold">100k+</div>
-                            <div class="text-slate-500 text-sm">用户选择</div>
+                            <div class="text-2xl font-bold text-primary">5</div>
+                            <div class="text-slate-500 text-sm">题型支持</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-bold">4.9</div>
-                            <div class="text-slate-500 text-sm">应用评分</div>
+                            <div class="text-2xl font-bold text-primary">3</div>
+                            <div class="text-slate-500 text-sm">平台覆盖</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-bold">5000+</div>
-                            <div class="text-slate-500 text-sm">精品课程</div>
+                            <div class="text-2xl font-bold text-primary">100%</div>
+                            <div class="text-slate-500 text-sm">本地数据</div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 右侧：功能预览卡片 -->
                 <div class="relative">
-                    <div class="w-full max-w-sm mx-auto">
-                        <img src="https://picsum.photos/id/3/600/1200" alt="APP界面预览" class="rounded-3xl shadow-soft shadow-2xl">
+                    <div class="w-full max-w-md mx-auto">
+                        <!-- 手机外观模拟 -->
+                        <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 p-3">
+                            <div class="bg-slate-100 rounded-2xl overflow-hidden aspect-[9/16] flex flex-col">
+                                <!-- 状态栏 -->
+                                <div class="bg-white px-4 pt-3 pb-2 flex justify-between items-center text-xs text-slate-500">
+                                    <span>9:41</span>
+                                    <div class="flex gap-1 items-center">
+                                        <i class="fa fa-signal"></i>
+                                        <i class="fa fa-wifi"></i>
+                                        <i class="fa fa-battery-three-quarters"></i>
+                                    </div>
+                                </div>
+                                <!-- 内容区 -->
+                                <div class="flex-1 bg-gradient-to-b from-slate-50 to-white p-4 space-y-3 overflow-hidden">
+                                    <div class="text-primary font-bold text-xl mt-2 mb-1">ExamMate</div>
+
+                                    <!-- 题库卡片 -->
+                                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="font-semibold text-slate-800">高等数学·期末题库</span>
+                                            <span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">120 题</span>
+                                        </div>
+                                        <div class="flex gap-2 text-xs">
+                                            <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded">单选 60</span>
+                                            <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded">多选 30</span>
+                                            <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded">填空 20</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- AI 出题卡片 -->
+                                    <div class="bg-gradient-to-br from-primary to-indigo-600 rounded-xl p-4 text-white">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <i class="fa fa-magic"></i>
+                                            <span class="font-semibold">AI 出题助手</span>
+                                        </div>
+                                        <p class="text-sm text-white/90">「帮我出 10 道关于导数的选择题」</p>
+                                    </div>
+
+                                    <!-- 进度条 -->
+                                    <div class="bg-slate-100 rounded-xl p-4">
+                                        <div class="flex justify-between text-sm mb-2">
+                                            <span class="text-slate-700">答题进度</span>
+                                            <span class="text-primary font-medium">45/120</span>
+                                        </div>
+                                        <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                            <div class="h-full w-[37%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 底部导航 -->
+                                <div class="bg-white border-t border-slate-100 px-4 py-2 flex justify-around text-xs">
+                                    <div class="flex flex-col items-center text-primary">
+                                        <i class="fa fa-graduation-cap text-base"></i>
+                                        <span class="mt-0.5">练习</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-slate-400">
+                                        <i class="fa fa-list-alt text-base"></i>
+                                        <span class="mt-0.5">题库</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-slate-400">
+                                        <i class="fa fa-bookmark text-base"></i>
+                                        <span class="mt-0.5">错题本</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-slate-400">
+                                        <i class="fa fa-cog text-base"></i>
+                                        <span class="mt-0.5">设置</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="absolute -top-8 -left-10 w-24 h-24 bg-secondary/20 rounded-full blur-2xl"></div>
-                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+
+                    <!-- 浮动徽章 -->
+                    <div class="absolute -top-4 -left-6 bg-white rounded-2xl shadow-soft p-3 hidden sm:flex items-center gap-2 border border-slate-100">
+                        <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center">
+                            <i class="fa fa-check-circle text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-500">已答对</div>
+                            <div class="font-bold text-slate-800">108 / 120</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 核心功能 -->
-    <section id="feature" class="py-20 bg-white">
+    <section id="features" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold">强大功能，助力学习</h2>
-                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">专为学习者打造，覆盖预习、听课、刷题、复习全流程</p>
+                <div class="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm mb-4">
+                    <i class="fa fa-star mr-1"></i> 核心功能
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">专为刷题设计的强大功能</h2>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto text-lg">
+                    从题库导入到答题练习，从 AI 出题到错题复习，Exammate 覆盖你备考的每一个环节
+                </p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 卡片1 -->
-                <div class="p-7 rounded-2xl bg-slate-50 hover:shadow-soft transition group">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
-                        <i class="fa fa-book"></i>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 功能1：文档导入 -->
+                <div class="group p-7 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-soft transition-all border border-transparent hover:border-slate-100">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa fa-file-word-o"></i>
                     </div>
-                    <h3 class="text-xl font-semibold">智能题库</h3>
-                    <p class="mt-3 text-slate-600">海量习题，错题自动收录，AI分析薄弱知识点，针对性练习。</p>
+                    <h3 class="text-xl font-semibold mb-2">一键导入题库</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        支持 Word(.docx)、PDF、纯文本等多种格式，智能解析题干、选项、答案，几秒钟建立专属题库。也支持导出 examep 格式备份。
+                    </p>
                 </div>
-                <!-- 卡片2 -->
-                <div class="p-7 rounded-2xl bg-slate-50 hover:shadow-soft transition group">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
-                        <i class="fa fa-sticky-note"></i>
+
+                <!-- 功能2：AI 智能出题 -->
+                <div class="group p-7 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-soft transition-all border border-transparent hover:border-slate-100">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa fa-magic"></i>
                     </div>
-                    <h3 class="text-xl font-semibold">云笔记</h3>
-                    <p class="mt-3 text-slate-600">图文笔记，多端同步，支持标记、思维导图，随时回看复习。</p>
+                    <h3 class="text-xl font-semibold mb-2">AI 智能出题</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        内置 AI 助手，一句话生成试卷。支持指定题型、难度、知识点范围，自动组卷后一键开始练习。
+                    </p>
                 </div>
-                <!-- 卡片3 -->
-                <div class="p-7 rounded-2xl bg-slate-50 hover:shadow-soft transition group">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
-                        <i class="fa fa-calendar-check-o"></i>
+
+                <!-- 功能3：多题型支持 -->
+                <div class="group p-7 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-soft transition-all border border-transparent hover:border-slate-100">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa fa-check-square-o"></i>
                     </div>
-                    <h3 class="text-xl font-semibold">学习计划</h3>
-                    <p class="mt-3 text-slate-600">自定义学习目标，每日打卡提醒，追踪学习时长，培养习惯。</p>
+                    <h3 class="text-xl font-semibold mb-2">五种题型全覆盖</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        单选题、多选题、判断题、填空题、简答题，主流考试题型一网打尽。答题进度自动保存，随时继续。
+                    </p>
                 </div>
-                <!-- 卡片4 -->
-                <div class="p-7 rounded-2xl bg-slate-50 hover:shadow-soft transition group">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
-                        <i class="fa fa-play-circle"></i>
+
+                <!-- 功能4：函数与几何绘图 -->
+                <div class="group p-7 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-soft transition-all border border-transparent hover:border-slate-100">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa fa-area-chart"></i>
                     </div>
-                    <h3 class="text-xl font-semibold">精品网课</h3>
-                    <p class="mt-3 text-slate-600">高清课程视频，倍速播放，离线缓存，碎片时间也能听课。</p>
+                    <h3 class="text-xl font-semibold mb-2">函数与几何绘图</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        AI 出题可自动绘制函数图像（二次函数、三角函数）和几何图形（三角形、圆、线段），数学题也能直观展现。
+                    </p>
                 </div>
-                <!-- 卡片5 -->
-                <div class="p-7 rounded-2xl bg-slate-50 hover:shadow-soft transition group">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
-                        <i class="fa fa-line-chart"></i>
+
+                <!-- 功能5：错题本 -->
+                <div class="group p-7 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-soft transition-all border border-transparent hover:border-slate-100">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa fa-bookmark"></i>
                     </div>
-                    <h3 class="text-xl font-semibold">学习数据</h3>
-                    <p class="mt-3 text-slate-600">可视化学习报告，掌握进度，直观看到自己的成长曲线。</p>
+                    <h3 class="text-xl font-semibold mb-2">智能错题本</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        答错的题目自动收录，支持按时间排序、重新练习。AI 助手还能分析错题本，帮你找出薄弱知识点。
+                    </p>
                 </div>
-                <!-- 卡片6 -->
-                <div class="p-7 rounded-2xl bg-slate-50 hover:shadow-soft transition group">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
-                        <i class="fa fa-users"></i>
+
+                <!-- 功能6：LaTeX 数学公式 -->
+                <div class="group p-7 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-soft transition-all border border-transparent hover:border-slate-100">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-5 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa fa-superscript"></i>
                     </div>
-                    <h3 class="text-xl font-semibold">学习社区</h3>
-                    <p class="mt-3 text-slate-600">和伙伴一起交流讨论，互相打卡，告别独自学习的枯燥。</p>
+                    <h3 class="text-xl font-semibold mb-2">LaTeX 公式渲染</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        完整支持 LaTeX 数学公式（分数、根号、上下标、希腊字母等），理工科题库也能完美显示。
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 产品优势 -->
-    <section id="advantage" class="py-20">
+    <!-- AI 助手亮点 -->
+    <section id="ai" class="py-24 bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white relative overflow-hidden">
+        <!-- 背景网格 -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- 左侧：AI 对话预览 -->
+                <div class="order-2 md:order-1">
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700 overflow-hidden shadow-2xl">
+                        <!-- 对话头部 -->
+                        <div class="px-5 py-4 border-b border-slate-700 bg-slate-800/50 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                <i class="fa fa-android"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Exammate AI</div>
+                                <div class="text-xs text-slate-400">在线 · 多轮对话</div>
+                            </div>
+                        </div>
+                        <!-- 对话内容 -->
+                        <div class="p-5 space-y-4">
+                            <!-- 用户消息 -->
+                            <div class="flex justify-end">
+                                <div class="bg-primary rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[80%] text-sm">
+                                    帮我出 5 道关于三角函数的选择题，难度中等
+                                </div>
+                            </div>
+                            <!-- AI 回复 -->
+                            <div class="flex gap-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center shrink-0">
+                                    <i class="fa fa-magic text-xs"></i>
+                                </div>
+                                <div class="bg-slate-700 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[80%] text-sm">
+                                    <p class="text-slate-200 mb-2">已为你生成一份三角函数测验，共 5 道单选，涵盖诱导公式和图像变换。</p>
+                                    <!-- 试卷卡片 -->
+                                    <div class="bg-slate-600/50 rounded-xl p-3 border border-slate-600">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="font-semibold text-sm">三角函数小测</span>
+                                            <span class="text-xs text-secondary bg-secondary/20 px-2 py-0.5 rounded-full">5 题</span>
+                                        </div>
+                                        <button class="w-full bg-primary hover:bg-primary/90 text-white text-sm py-2 rounded-lg transition">
+                                            开始答题 →
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- AI 绘图 -->
+                            <div class="flex gap-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center shrink-0">
+                                    <i class="fa fa-magic text-xs"></i>
+                                </div>
+                                <div class="bg-slate-700 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[80%] text-sm">
+                                    <p class="text-slate-200 mb-2">函数图像：</p>
+                                    <div class="bg-slate-900 rounded-lg h-24 flex items-center justify-center text-slate-500 text-xs">
+                                        <i class="fa fa-area-chart text-2xl mr-2 text-primary"></i> y = sin(x) 图像
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：AI 功能说明 -->
+                <div class="order-1 md:order-2">
+                    <div class="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-sm mb-4">
+                        <i class="fa fa-magic mr-1"></i> AI 助手
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+                        内置 AI 助手，<br>
+                        <span class="bg-gradient-to-r from-primary to-secondary text-gradient">像真人老师一样帮你备考</span>
+                    </h2>
+                    <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                        Exammate 的 AI 助手不只是聊天机器人。它可以真正参与你的备考流程——出题、绘图、查资料、分析错题，全部在应用内完成。
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="shrink-0 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                                <i class="fa fa-pencil text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">智能出题与组卷</h4>
+                                <p class="text-slate-400">指定知识点、题型、数量，AI 秒生成完整试卷并可直接开始答题</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="shrink-0 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                                <i class="fa fa-globe text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">联网搜索查证</h4>
+                                <p class="text-slate-400">遇到不确定的知识点，让 AI 联网搜索最新资料，确保答案准确</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="shrink-0 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                                <i class="fa fa-file-text text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">生成复习文档</h4>
+                                <p class="text-slate-400">让 AI 帮你整理知识点、生成复习提纲，可导出为文档保存</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="shrink-0 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                                <i class="fa fa-bookmark text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">分析你的错题本</h4>
+                                <p class="text-slate-400">AI 可以读取你的错题数据，帮你发现薄弱环节，针对性练习</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 多平台支持 -->
+    <section id="platforms" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
+                    <i class="fa fa-laptop mr-1"></i> 跨平台
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">一套代码，三端运行</h2>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto text-lg">
+                    基于 Kotlin Multiplatform + Jetpack Compose，原生体验，数据互通
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Android -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-soft transition border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                        <i class="fa fa-android text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Android</h3>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        支持 Android 手机和平板，Material Design 3 原生体验，适配各种屏幕尺寸。
+                    </p>
+                    <a href="#download" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                        下载 APK
+                        <i class="fa fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- iOS -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-soft transition border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                        <i class="fa fa-apple text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">iOS</h3>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        适配 iPhone 和 iPad，SwiftUI 风格的界面，流畅自然的交互体验。
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-slate-400 font-medium">
+                        <i class="fa fa-app-store text-sm"></i>
+                        <span>App Store 即将上架</span>
+                    </div>
+                </div>
+
+                <!-- Desktop -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-soft transition border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                        <i class="fa fa-desktop text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Desktop</h3>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        支持 macOS、Windows、Linux，大屏体验更高效，横屏自动切换为侧边导航。
+                    </p>
+                    <a href="#download" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                        获取桌面版
+                        <i class="fa fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据隐私 -->
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <img src="https://picsum.photos/id/2/700/500" alt="APP使用场景" class="rounded-2xl shadow-soft">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=a+person+working+on+laptop+with+lock+icon+and+data+encryption+visualization%2C+modern+flat+design+illustration+style%2C+blue+and+indigo+color+scheme%2C+clean+background&image_size=portrait_4_3" 
+                         alt="数据隐私保护" 
+                         class="rounded-2xl shadow-soft w-full object-cover">
                 </div>
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold">为什么选择智学？</h2>
-                    <div class="mt-8 space-y-6">
-                        <div class="flex gap-4">
-                            <div class="shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center"><i class="fa fa-check"></i></div>
-                            <div>
-                                <h4 class="font-semibold text-lg">轻量化，运行流畅</h4>
-                                <p class="text-slate-600">安装包体积小，低配手机也能稳定运行，不卡顿。</p>
-                            </div>
+                    <div class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm mb-4">
+                        <i class="fa fa-lock mr-1"></i> 隐私安全
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        你的数据，<br>
+                        <span class="bg-gradient-to-r from-primary to-secondary text-gradient">完全属于你</span>
+                    </h2>
+                    <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                        Exammate 采用本地存储优先策略。所有题库、答题记录、错题本都保存在你的设备上，无需联网就能使用。你可以随时导出备份，也可以选择清空所有数据。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="fa fa-check-circle text-primary text-xl"></i>
+                            <span class="font-medium text-slate-700">本地存储</span>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center"><i class="fa fa-check"></i></div>
-                            <div>
-                                <h4 class="font-semibold text-lg">数据安全隐私保护</h4>
-                                <p class="text-slate-600">本地+云端双重备份，严格保护你的笔记与学习数据。</p>
-                            </div>
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="fa fa-check-circle text-primary text-xl"></i>
+                            <span class="font-medium text-slate-700">离线可用</span>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center"><i class="fa fa-check"></i></div>
-                            <div>
-                                <h4 class="font-semibold text-lg">跨设备同步</h4>
-                                <p class="text-slate-600">手机、平板多端互通，学习记录随时同步。</p>
-                            </div>
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="fa fa-check-circle text-primary text-xl"></i>
+                            <span class="font-medium text-slate-700">数据可导出</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="fa fa-check-circle text-primary text-xl"></i>
+                            <span class="font-medium text-slate-700">无账号追踪</span>
                         </div>
                     </div>
                 </div>
@@ -216,26 +516,39 @@
     </section>
 
     <!-- 下载区域 -->
-    <section id="download" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold">马上开始你的学习之旅</h2>
-            <p class="mt-5 text-white/90 max-w-xl mx-auto">支持安卓 / iOS，免费下载，即刻开启高效学习</p>
-            <div class="mt-10 flex flex-wrap justify-center gap-6">
-                <a href="#" class="bg-white text-primary px-8 py-4 rounded-xl flex items-center gap-3 hover:shadow-xl transition">
+    <section id="download" class="py-24 bg-gradient-to-br from-primary via-indigo-600 to-secondary text-white relative overflow-hidden">
+        <!-- 装饰 -->
+        <div class="absolute top-0 left-1/4 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+                马上开始你的高效刷题之旅
+            </h2>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+                免费下载 Exammate，一键导入题库，让 AI 帮你出题。支持 Android、iOS、桌面三端。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="https://github.com/lucas8267" target="_blank" rel="noopener" class="bg-white text-primary px-8 py-4 rounded-xl flex items-center gap-3 hover:shadow-xl transition hover:scale-105 group">
                     <i class="fa fa-android text-2xl"></i>
                     <div class="text-left">
-                        <div class="text-sm">下载</div>
-                        <div class="font-semibold">Android 版</div>
+                        <div class="text-xs text-slate-500">最新版</div>
+                        <div class="font-semibold">Android APK</div>
                     </div>
+                    <i class="fa fa-chevron-right text-slate-300 group-hover:translate-x-1 transition"></i>
                 </a>
-                <a href="#" class="bg-white text-primary px-8 py-4 rounded-xl flex items-center gap-3 hover:shadow-xl transition">
-                    <i class="fa fa-apple text-2xl"></i>
+                <a href="https://github.com/lucas8267" target="_blank" rel="noopener" class="bg-white/10 backdrop-blur border border-white/30 text-white px-8 py-4 rounded-xl flex items-center gap-3 hover:bg-white/20 transition hover:scale-105 group">
+                    <i class="fa fa-github text-2xl"></i>
                     <div class="text-left">
-                        <div class="text-sm">下载</div>
-                        <div class="font-semibold">iOS 版</div>
+                        <div class="text-xs text-white/70">源码</div>
+                        <div class="font-semibold">GitHub</div>
                     </div>
+                    <i class="fa fa-chevron-right text-white/50 group-hover:translate-x-1 transition"></i>
                 </a>
             </div>
+            <p class="text-white/70 text-sm">
+                <i class="fa fa-info-circle mr-1"></i> iOS 版和桌面版即将发布，敬请关注 GitHub 更新
+            </p>
         </div>
     </section>
 
@@ -243,41 +556,46 @@
     <footer class="py-12 bg-dark text-slate-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-10">
-                <div>
+                <div class="md:col-span-2">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-lg">Z</div>
-                        <span class="text-xl font-bold text-white">智学</span>
+                        <div class="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-lg">E</div>
+                        <span class="text-xl font-bold text-white tracking-tight">Exammate</span>
                     </div>
-                    <p class="text-slate-400">新一代移动学习APP，让学习更简单高效。</p>
+                    <p class="text-slate-400 max-w-md leading-relaxed">
+                        跨平台智能刷题应用。从文档导入到 AI 出题，帮助学习者高效备考。基于 Kotlin Multiplatform 构建。
+                    </p>
+                    <div class="mt-6 flex gap-4">
+                        <a href="https://github.com/lucas8267" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold mb-4">产品</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#feature" class="hover:text-white transition">功能介绍</a></li>
-                        <li><a href="#download" class="hover:text-white transition">APP下载</a></li>
-                        <li><a href="#" class="hover:text-white transition">更新日志</a></li>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#features" class="hover:text-white transition">功能介绍</a></li>
+                        <li><a href="#ai" class="hover:text-white transition">AI 助手</a></li>
+                        <li><a href="#platforms" class="hover:text-white transition">多平台支持</a></li>
+                        <li><a href="#download" class="hover:text-white transition">下载</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">支持</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition">帮助中心</a></li>
-                        <li><a href="#" class="hover:text-white transition">联系我们</a></li>
-                        <li><a href="#" class="hover:text-white transition">反馈建议</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">法律</h4>
-                    <ul class="space-y-2">
+                    <h4 class="text-white font-semibold mb-4">关于</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://github.com/lucas8267" target="_blank" rel="noopener" class="hover:text-white transition">开源项目</a></li>
+                        <li><a href="#" class="hover:text-white transition">隐私声明</a></li>
                         <li><a href="#" class="hover:text-white transition">用户协议</a></li>
-                        <li><a href="#" class="hover:text-white transition">隐私政策</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-slate-800 mt-10 pt-8 text-center text-slate-500 text-sm">
-                © 2026 智学APP 版权所有
+            <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+                <div>© 2026 Exammate. All rights reserved.</div>
+                <div class="flex items-center gap-4">
+                    <span>Built with <i class="fa fa-heart text-red-400"></i> using Kotlin Multiplatform</span>
+                </div>
             </div>
         </div>
     </footer>
+
 </body>
 </html>
